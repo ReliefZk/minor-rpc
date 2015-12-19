@@ -5,9 +5,9 @@ import com.zk.rpc.bean.RpcResponse;
 
 /**
  * 客户端帮助类
- * 
+ *
  * @author sunney
- * 
+ *
  */
 public interface Client {
 	Object invoke(RpcRequest request);

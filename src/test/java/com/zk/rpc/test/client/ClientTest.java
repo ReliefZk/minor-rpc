@@ -21,10 +21,13 @@ public class ClientTest {
 	public void testCount() {
 		long startMilli = System.currentTimeMillis();
 		int count = 0;
-		for (int i = 0; i < 1000 * 1000; i++) {
+		for (int i = 0; i < 10 * 1000; i++) {
+
+
 			Hello hello = BeanProxyFactory
 					.create(Hello.class, "//localhost:9991/hello",
 							ClientTest.class.getClassLoader());
+
 			Data data = hello.say(DataGener.genData());
 			if (data != null) {
 				logger.info("{},瀹為檯杩斿洖鐨勫�硷細{}", count++, data);

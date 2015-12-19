@@ -23,23 +23,21 @@ public class BeanProxy implements InvocationHandler {
 
 	public BeanProxy(TransportURL u, NetConfig netConfig) {
 		this.client = new NettyClient(u);
-//		this.client = new SocketClient(u, netConfig);
 		methodKey = new MethodKeyImpl();
 	}
 
 	@Override
 	public Object invoke(Object bean, Method method, Object[] args) throws Throwable {
-		return client.invoke(invokeArgsToRequest(bean, method, args));
+		return client.invoke(invokeArgsToRequest(method, args));
 	}
 
 	/**
 	 * invoke参数转换为请求对象
-	 * @param bean
 	 * @param method
 	 * @param args
 	 * @return
 	 */
-	private RpcRequest invokeArgsToRequest(Object bean, Method method, Object[] args) {
+	private RpcRequest invokeArgsToRequest(Method method, Object[] args) {
 		String _beanName = client.getBeanName();
 		return new RpcRequest(_beanName, methodKey.methodKey(_beanName, method, method.getParameterTypes()), args);
 	}

@@ -16,8 +16,6 @@ public abstract class AbstractClient implements Client {
 	protected String beanName;
 	protected ConcurrentHashMap<Integer, ArrayBlockingQueue<RpcResponse>> responseMap = new ConcurrentHashMap<Integer, ArrayBlockingQueue<RpcResponse>>();
 
-	// private RpcResponse response;
-
 	public AbstractClient(TransportURL url) {
 		this.host = url.getHost();
 		this.port = url.getPort();

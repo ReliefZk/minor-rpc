@@ -17,8 +17,7 @@ import com.zk.rpc.common.server.BeanRegister;
 import com.zk.rpc.common.server.Tuple;
 
 /**
- * �������˴�����
- * 
+ * 服务端
  * @author sunney
  * 
  */
@@ -29,7 +28,7 @@ public class ServerChannelHandler extends ChannelInboundMessageHandlerAdapter<Rp
 
 	public ServerChannelHandler(BeanRegister beanRegister, ExecutorService threadPool) {
 		if(threadPool == null){
-			throw new NullPointerException("Ŀǰ�̳߳ز���Ϊ�գ�");
+			throw new NullPointerException("thread pool init failed!");
 		}
 		this.beanRegister = beanRegister;
 		this.threadPool = threadPool;
@@ -39,14 +38,10 @@ public class ServerChannelHandler extends ChannelInboundMessageHandlerAdapter<Rp
 	public void messageReceived(ChannelHandlerContext ctx, RpcRequest message) throws Exception {
 		try {
 			if (message != null) {
-				/**
-				 * ���������Ӹ��̳߳ش���ҵ�������Netty��worker�߳̾��췵�أ��Ա㴦�������ͻ�������
-				 * ����ʵ�ʶԷ������˵�TPSû���Ӱ��(Ӳ������)�����Ǹ�����Ϊ����������߷������˵���������
-				 */
 				threadPool.execute(new DoHandler(ctx, message, beanRegister));
 			}
 		} catch (Exception e) {
-			logger.error("�̵߳��ȹ��ڷ�æ�����´�������ʧ�ܣ�", e);
+			logger.error("execute remove invoked failed!", e);
 		}
 	}
 
@@ -80,7 +75,7 @@ public class ServerChannelHandler extends ChannelInboundMessageHandlerAdapter<Rp
 				ctx.flush();
 				future.addListener(ChannelFutureListener.CLOSE);
 			} catch (Exception e) {
-				logger.error("ҵ�����ʧ�ܣ�", e);
+				logger.error("??????????", e);
 			}
 		}
 	}
