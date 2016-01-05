@@ -76,12 +76,9 @@ public class NettyClient extends AbstractClient {
 						public void initChannel(SocketChannel ch)
 								throws Exception {
 							ChannelPipeline pipeline = ch.pipeline();
-							pipeline.addLast("encoder", new RpcEncoder(
-									End.CLIENT));
-							pipeline.addLast("decoder", new RpcDecoder(
-									End.CLIENT));
-							pipeline.addLast("handler",
-									new ClientChannelHandler(client, frequest));
+							pipeline.addLast("encoder", new RpcEncoder(End.CLIENT));
+							pipeline.addLast("decoder", new RpcDecoder(End.CLIENT));
+							pipeline.addLast("handler", new ClientChannelHandler(client, frequest));
 						}
 					});
 

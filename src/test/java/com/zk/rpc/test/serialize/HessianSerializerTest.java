@@ -24,14 +24,14 @@ public class HessianSerializerTest {
 	@Test
 	public void testEnDe() throws Exception {
 		int count = 0;
-		while (count++ < 1000 * 10) {
+		while (count++ < 10) {
 			Data data = new Data();
 			data.setAge(25);
 			data.setName("zhoukui");
-			data.setTags(new String[] { "����", "լ", "����", "����" });
-			data.setCates(Arrays.asList(new String[] { "��˿", "���������", "����" }));
+			data.setTags(new String[] { "闷骚", "男", "单身待解救", "篮球" });
+			data.setCates(Arrays.asList(new String[]{"笑容", "帅气", "偶尔" }));
 			Map<Integer, String> map = new HashMap<Integer, String>();
-			map.put(165, "���");
+			map.put(165, "cm");
 			data.setMap(map);
 			logger.info("Before:{}", data);
 

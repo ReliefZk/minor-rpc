@@ -12,6 +12,7 @@ import com.zk.rpc.common.common.End;
  * 
  */
 public interface Codec {
+
 	ByteBuf encode(End decoder, RpcMessage message) throws Exception;
 
 	RpcMessage decode(End decoder, ByteBuf buff) throws Exception;

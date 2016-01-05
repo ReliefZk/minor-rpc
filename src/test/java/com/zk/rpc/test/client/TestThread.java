@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import com.zk.rpc.client.BeanProxyFactory;
 import com.zk.rpc.test.bean.Data;
 import com.zk.rpc.test.bean.DataGener;
-import com.zk.rpc.test.bean.Hello;
+import com.zk.rpc.test.bean.HelloService;
 
 public class TestThread {
 	private static Logger logger = LoggerFactory.getLogger(ClientTest.class);
@@ -22,7 +22,7 @@ public class TestThread {
 			@Override
 			public void run() {
 				for (int i = 0; i < 1000; i++) {
-					Hello hello = BeanProxyFactory.create(Hello.class, "//localhost:9991/hello");
+					HelloService hello = BeanProxyFactory.create(HelloService.class, "//localhost:9991/hello");
 					Data data = hello.say(DataGener.genData());
 					logger.info("{},瀹為檯杩斿洖鐨勫�硷細{}", i, data);
 				}

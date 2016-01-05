@@ -4,14 +4,14 @@ import java.lang.reflect.Method;
 
 import com.zk.rpc.common.server.AbstractBeanRegister;
 import com.zk.rpc.common.server.Tuple;
-import com.zk.rpc.test.bean.HelloImpl;
+import com.zk.rpc.test.bean.HelloServiceImpl;
 
 public class BeanRegisterImpl extends AbstractBeanRegister {
 	
 	@Override
 	public void initBeanRepository() {
-		String beanName = "hello";
-		Object bean = new HelloImpl();
+		String beanName = "helloService";
+		Object bean = new HelloServiceImpl();
 		register(beanName, bean);
 	}
 

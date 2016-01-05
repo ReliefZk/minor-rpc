@@ -5,7 +5,7 @@ import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class HelloImpl implements Hello {
+public class HelloServiceImpl implements HelloService {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Override

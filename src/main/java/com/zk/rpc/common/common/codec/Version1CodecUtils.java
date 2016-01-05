@@ -53,9 +53,9 @@ public class Version1CodecUtils {
 	}
 
 	/**
-	 * 反序列化 RpcRequest <- ByteBuf （服务器端调用）
+	 * 反序列化 RpcRespose <- ByteBuf （服务器端调用）
 	 * 
-	 * @param message
+	 * @param buff
 	 * @return
 	 * @throws IOException 
 	 */
@@ -104,7 +104,7 @@ public class Version1CodecUtils {
 	/**
 	 * 反序列化 RpcResponse <- ByteBuf (客户端调用)
 	 * 
-	 * @param message
+	 * @param buff
 	 * @return
 	 * @throws IOException 
 	 */

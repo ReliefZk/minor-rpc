@@ -19,7 +19,7 @@ public enum RpcProtocol implements Codec {
 	 * 不存在的协议，主要用来调用parse(byte)方法
 	 */
 	NULL {
-		public ByteBuf encode(End decoder, RpcMessage message) throws Exception {
+		public ByteBuf encode(End end, RpcMessage message) throws Exception {
 			throw new CodecException("不存在的协议信息！！！");
 		};
 

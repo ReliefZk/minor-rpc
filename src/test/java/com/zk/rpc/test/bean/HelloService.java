@@ -1,6 +1,6 @@
 package com.zk.rpc.test.bean;
 
-public interface Hello {
+public interface HelloService {
 	void say();
 
 	Data say(Data data);

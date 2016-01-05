@@ -68,7 +68,6 @@ public class ServerChannelHandler extends ChannelInboundMessageHandlerAdapter<Rp
 				} else {
 					response.setResponse(null);
 				}
-				tuple = null;
 				message = null;
 //				ctx.channel().isActive();
 				ChannelFuture future = ctx.write(response);

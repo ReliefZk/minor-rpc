@@ -14,6 +14,7 @@ import com.caucho.hessian.io.Hessian2Output;
  * 
  */
 public class HessianSerializer implements Serializer {
+
 	@Override
 	public byte[] enSerialize(Object message) throws IOException {
 		ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
